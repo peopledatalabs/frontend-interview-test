@@ -4,37 +4,38 @@ import io from 'socket.io-client';
 let socket;
 
 const Home = () => {
-  const [input, setInput] = useState('');
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    socket = io('http://localhost:3000');
+    const fetchSocket = async () => {
+      await fetch('/api/socket');
+    };
+
+    fetchSocket();
+
+    socket = io();
 
     socket.on('connect', () => {
       console.log('connected');
     });
 
-    socket.on('update-input', (msg) => {
-      setInput(msg);
-    });
-
     socket.on('message', (msg) => {
-      console.log(msg);
+      setMessages((oldMessages) => [msg, ...oldMessages, msg]);
     });
 
-    return () => socket.emit('end');
+    return () => socket.off('message');
   }, []);
 
-  const onChangeHandler = (e) => {
-    setInput(e.target.value);
-    socket.emit('input-change', e.target.value);
-  };
-
   return (
-    <input
-      placeholder="Type something"
-      value={input}
-      onChange={onChangeHandler}
-    />
+    <>
+      <h1>Messages</h1>
+      {messages.map((msg, index) => (
+        <p key={index}>
+          <span>{`${msg.user.username} - `}</span>
+          {msg.message}
+        </p>
+      ))}
+    </>
   );
 };
 

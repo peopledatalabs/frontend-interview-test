@@ -72,6 +72,9 @@ const messages = [
   'I am a great data engineer',
   'Data is the new oil',
   'Data is going to chnage the world',
+  'People Data Labs is the best',
+  'People Data is going to change the world',
+  'Company Data is fantastic',
 ];
 
 const SocketHandler = (req, res) => {
