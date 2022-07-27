@@ -1,3 +1,5 @@
+import { find } from 'lodash';
+
 import users from '../../../constants/users';
 
 export default function handler(req, res) {
