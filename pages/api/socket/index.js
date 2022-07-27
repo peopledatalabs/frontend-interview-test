@@ -94,7 +94,7 @@ const SocketHandler = (req, res) => {
       setInterval(() => {
         const user = sample(users);
         const message = sample(messages);
-        socket.broadcast.emit('message', { user, message });
+        socket.emit('message', { user, message });
       }, 5000);
     });
   }

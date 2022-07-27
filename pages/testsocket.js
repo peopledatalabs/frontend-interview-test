@@ -7,12 +7,7 @@ const Home = () => {
   const [input, setInput] = useState('');
 
   useEffect(() => {
-    socketInitializer();
-  });
-
-  const socketInitializer = async () => {
-    await fetch('/api/socket');
-    socket = io();
+    socket = io('http://localhost:3000');
 
     socket.on('connect', () => {
       console.log('connected');
@@ -25,7 +20,9 @@ const Home = () => {
     socket.on('message', (msg) => {
       console.log(msg);
     });
-  };
+
+    return () => socket.emit('end');
+  }, []);
 
   const onChangeHandler = (e) => {
     setInput(e.target.value);
