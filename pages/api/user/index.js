@@ -12,7 +12,7 @@ export default function handler(req, res) {
         res.status(404).send({ message: 'User not found' });
       }
     } else {
-      res.status(400).send({ message: 'Bad request' });
+      res.status(400).send({ message: 'Bad request. Must provide an id in your body.' });
     }
   } else {
     res.status(405).send({ message: 'Method not allowed' });
