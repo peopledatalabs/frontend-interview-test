@@ -1,20 +1,23 @@
 # People Data Labs -  Frontend Coding Challenge
 
-## Intro
+Here at PDL, we love to chat about data. We started building this internal chat app to satisfy this unquenchable desire, but we need your help to make it better. You can do all of your work in `pages/index.js`. Here's the acceptance criteria for the challenge:
 
-Here at PDL, we love to chat about data. We started building this internal chat app to satisfy this unquenchable desire, but we need your help to make it better. Here's the acceptance criteria for the challenge:
-
-1. Associate a user's profile with each message so we can display information about the user per message sent
-2. Use [Tailwind CSS](https://tailwindcss.com) for styling... 
-   1. App container - let's get this content centered and responsive
-   2. Chat Message Card - We should display the message in a card with the user's details, including avatar
-   3. BONUS: Profile Card - We should display current user's information off to the side (maybe a separate page?)
-
+1. Connect to the Socket endpoint to consume message data
+2. Display messages
+3. Associate a user's profile with each message
+4. Add input to send a message with `Enter` key
+5. Use [Tailwind CSS](https://tailwindcss.com) to style the chat room
+   - Create chat message card
+     - Add user's specific color for each chat card
+     - Display avatar
+   - BONUS: On click, display profile card with user's info
 
 ## API Endpoints
 
-1. Profile - `GET /api/profile/me`
-2. User - `GET /api/user/:id`
+1. Socket - `/api/socket` - Consume data from this socket endpoint
+
+2. Profile - `GET /api/profile/me`
+3. User - `GET /api/user/:id`
    
    ```json
    {
@@ -39,7 +42,7 @@ Here at PDL, we love to chat about data. We started building this internal chat 
     }
    ```
 
-3. Users - `GET /api/users`
+4. Users - `GET /api/users`
    
    ```json
     [
@@ -64,10 +67,6 @@ Here at PDL, we love to chat about data. We started building this internal chat 
     ]
    ```
 
-
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
@@ -81,6 +80,4 @@ yarn dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
