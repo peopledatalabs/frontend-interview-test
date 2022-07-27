@@ -4,11 +4,11 @@
 
 Here at PDL, we love to chat about data. We started building this internal chat app to satisfy this unquenchable desire, but we need your help to make it better. Here's the acceptance criteria for the challenge:
 
-1. Consume each endpoint
+1. Associate a user's profile with each message so we can display information about the user per message sent
 2. Use [Tailwind CSS](https://tailwindcss.com) for styling... 
    1. App container - let's get this content centered and responsive
    2. Chat Message Card - We should display the message in a card with the user's details, including avatar
-   3. BONUS: Profile Card - We should display the user's information off to the side, or separate page?
+   3. BONUS: Profile Card - We should display current user's information off to the side (maybe a separate page?)
 
 
 ## API Endpoints
