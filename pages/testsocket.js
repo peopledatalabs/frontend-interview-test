@@ -14,7 +14,7 @@ const Home = () => {
     });
 
     socket.on('message', (msg) => {
-      setMessages((oldMessages) => [msg, ...oldMessages, msg]);
+      setMessages((oldMessages) => [msg, ...oldMessages]);
     });
 
     return () => socket.off('message');
@@ -25,7 +25,7 @@ const Home = () => {
       <h1>Messages</h1>
       {messages.map((msg, index) => (
         <p key={index}>
-          <span>{`${msg.user.username} - `}</span>
+          <span>{`${msg.userId} - `}</span>
           {msg.message}
         </p>
       ))}
