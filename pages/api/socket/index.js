@@ -62,6 +62,26 @@ const users = [
     createdAt: '2020-01-01T00:00:00.000Z',
     updatedAt: '2020-01-01T00:00:00.000Z',
   },
+  {
+    name: 'Alex Doe',
+    username: 'alexdoe',
+    userColor: 'yellow',
+    userId: '171819',
+    email: 'alexdoe@peopledatalabs.com',
+    avatar: 'https://i.pravatar.cc/300',
+    bio: 'I am a ux/ui designer :)',
+    location: 'Scottsdale, AZ',
+    website: 'https://www.peopledatalabs.com',
+    social: {
+      github: 'https://github.com/peopledatalabs',
+      twitter: 'https://twitter.com/peopledatalabs',
+      linkedin: 'https://www.linkedin.com/company/peopledatalabs',
+      facebook: 'https://www.facebook.com/peopledatalabs',
+      instagram: 'https://www.instagram.com/peopledatalabs',
+    },
+    createdAt: '2020-01-01T00:00:00.000Z',
+    updatedAt: '2020-01-01T00:00:00.000Z',
+  },
 ];
 
 const messages = [
@@ -82,7 +102,9 @@ const SocketHandler = (req, res) => {
     console.log('Socket is already running');
   } else {
     console.log('Socket is initializing');
-    const io = new Server(res.socket.server);
+    const io = new Server(res.socket.server, {
+      path: '/api/socket',
+    });
     res.socket.server.io = io;
 
     io.on('connection', (socket) => {

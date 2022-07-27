@@ -7,13 +7,7 @@ const Home = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const fetchSocket = async () => {
-      await fetch('/api/socket');
-    };
-
-    fetchSocket();
-
-    socket = io();
+    socket = io({ path: '/api/socket' });
 
     socket.on('connect', () => {
       console.log('connected');
