@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 
-let socket;
-
 const Home = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    socket = io({ path: '/api/socket' });
+    const socket = io({ path: '/api/socket' });
 
     socket.on('connect', () => {
       console.log('connected');
