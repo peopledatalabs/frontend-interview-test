@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { sample } from 'lodash';
 import { Server } from 'socket.io';
 
@@ -25,7 +23,7 @@ const SocketHandler = (req, res) => {
         const user = sample(users);
         const message = sample(messages);
         socket.emit('message', { userId: user.userId, message });
-      }, 5000);
+      }, 1000);
     });
   }
 
