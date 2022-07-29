@@ -23,7 +23,11 @@ const SocketHandler = (req, res) => {
         const user = sample(users);
         const message = sample(messages);
         socket.emit('message', { userId: user.userId, message });
-      }, 5000);
+      }, 1000);
+
+      const user = sample(users);
+      const message = sample(messages);
+      socket.emit('message', { userId: user.userId, message });
     });
   }
 
