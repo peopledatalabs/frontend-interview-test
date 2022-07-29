@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { sample } from 'lodash';
 import { Server } from 'socket.io';
 
