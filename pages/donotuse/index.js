@@ -11,11 +11,11 @@ const Home = () => {
       console.log('connected');
     });
 
-    socket.on('message', (msg) => {
+    socket.on('messages', (msg) => {
       setMessages((oldMessages) => [msg, ...oldMessages]);
     });
 
-    return () => socket.off('message');
+    return () => socket.off('messages');
   }, []);
 
   return (
